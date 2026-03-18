@@ -1,0 +1,1 @@
+Execute generated code/tests in a sandbox; capture failures and feed back into refactoring loop until green or retry limit.

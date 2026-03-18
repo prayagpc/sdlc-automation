@@ -1,0 +1,17 @@
+{
+  "name": "sdlc-automation",
+  "private": true,
+  "version": "0.1.0",
+  "description": "AI-powered SDLC automation: Jira ticket → tests → code → execution loop → PR",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "node pipelines/orchestrator.js",
+    "dev:api": "npm -w @sdlc/api run dev",
+    "dev:worker": "npm -w @sdlc/worker run dev",
+    "lint": "eslint .",
+    "format": "prettier . --write",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  }
+}

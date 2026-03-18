@@ -1,0 +1,1 @@
+All LLM prompt templates live here, organized by stage (test-plan, test-case, code-gen, refactor). Keep outputs structured (JSON/strict format).

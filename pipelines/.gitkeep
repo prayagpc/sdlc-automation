@@ -1,0 +1,1 @@
+Pipeline orchestration lives here: sequencing modules, passing contracts, and managing the execution/refinement loop.

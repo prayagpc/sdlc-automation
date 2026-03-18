@@ -1,0 +1,1 @@
+Place runnable services/apps here (e.g. `api/`, `worker/`). Each app owns its runtime entrypoint, config, and deployment bits.

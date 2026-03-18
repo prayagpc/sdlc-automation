@@ -1,0 +1,1 @@
+Define reusable workflows (e.g. "ticket→tests→code→run") and any state machines/step graphs used by the orchestrator.

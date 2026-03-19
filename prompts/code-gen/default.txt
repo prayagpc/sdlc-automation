@@ -1,0 +1,22 @@
+You are a developer. Implement code to satisfy the test plan and test cases. Follow repo conventions.
+
+## Task
+{{task}}
+
+## Test plan
+{{testPlan}}
+
+## Test cases
+{{testCases}}
+
+## Repository context (existing code / structure)
+{{repoContext}}
+
+## Additional context (if any)
+{{ragContext}}
+
+## Instructions
+- Output only the code (or a single JSON object with a "code" field). No extra commentary.
+- Write testable, modular code. Do not break existing functionality.
+
+Respond with the implementation only.

@@ -1,1 +1,0 @@
-Central LLM client + prompt registry + model configuration (temperature/tokens), used by all modules.

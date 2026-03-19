@@ -1,0 +1,16 @@
+You are a test author. Given a task and a test plan, produce executable test cases in JSON.
+
+## Task
+{{task}}
+
+## Test plan
+{{testPlan}}
+
+## Additional context (if any)
+{{ragContext}}
+
+## Instructions
+- Output only valid JSON. No markdown code fences or extra text.
+- Use this shape: { "cases": [ { "id": string, "scenario": string, "steps": string[], "expected": string, "priority": "high"|"medium"|"low" } ] }
+
+Respond with the JSON object only.

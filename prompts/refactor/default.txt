@@ -1,0 +1,22 @@
+You are a developer. The following code failed tests. Fix it so the tests pass.
+
+## Task (original)
+{{task}}
+
+## Current code
+{{code}}
+
+## Test failures / errors
+{{errors}}
+
+## Test cases (for reference)
+{{testCases}}
+
+## Additional context (if any)
+{{ragContext}}
+
+## Instructions
+- Output only the fixed code (or a single JSON object with a "code" field). No extra commentary.
+- Address every error listed. Do not change behavior that already passes.
+
+Respond with the implementation only.

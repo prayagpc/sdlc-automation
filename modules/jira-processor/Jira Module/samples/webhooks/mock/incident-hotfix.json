@@ -1,0 +1,52 @@
+{
+  "timestamp": 1711000000004,
+  "webhookEvent": "jira:issue_updated",
+  "issue_event_type_name": "issue_generic",
+  "user": {
+    "accountId": "712020:example-user-4",
+    "accountType": "atlassian",
+    "displayName": "SRE Engineer",
+    "active": true,
+    "timeZone": "Asia/Kolkata"
+  },
+  "issue": {
+    "id": "20004",
+    "self": "https://example.atlassian.net/rest/api/2/issue/20004",
+    "key": "APP-104",
+    "fields": {
+      "summary": "Production incident: payment callback failures",
+      "description": "Incident started at 09:40 UTC, callbacks from payment provider failing with 502.\n\nAcceptance Tests:\n- Callback endpoint returns 200 for valid payload\n- Retry queue drains under 5 minutes\n\nRunbook: https://gitlab.com/example-org/platform-runbooks/-/blob/main/payments/callbacks.md",
+      "issuetype": {
+        "id": "10101",
+        "name": "Incident"
+      },
+      "project": {
+        "id": "10010",
+        "key": "APP",
+        "name": "App Platform"
+      },
+      "status": {
+        "id": "10030",
+        "name": "Ready for Development"
+      },
+      "priority": {
+        "id": "1",
+        "name": "Highest"
+      },
+      "labels": ["incident", "hotfix", "sev1", "auto-dev"]
+    }
+  },
+  "changelog": {
+    "id": 70003,
+    "items": [
+      {
+        "field": "status",
+        "fieldtype": "jira",
+        "from": "10010",
+        "fromString": "To Do",
+        "to": "10030",
+        "toString": "Ready for Development"
+      }
+    ]
+  }
+}

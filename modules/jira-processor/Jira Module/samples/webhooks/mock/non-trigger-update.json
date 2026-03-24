@@ -1,0 +1,52 @@
+{
+  "timestamp": 1711000000005,
+  "webhookEvent": "jira:issue_updated",
+  "issue_event_type_name": "issue_generic",
+  "user": {
+    "accountId": "712020:example-user-5",
+    "accountType": "atlassian",
+    "displayName": "Product Manager",
+    "active": true,
+    "timeZone": "Asia/Kolkata"
+  },
+  "issue": {
+    "id": "20005",
+    "self": "https://example.atlassian.net/rest/api/2/issue/20005",
+    "key": "APP-105",
+    "fields": {
+      "summary": "Update onboarding copy for better clarity",
+      "description": "Minor text improvements requested by product team.\n\nRepo: https://bitbucket.org/example-org/onboarding-ui",
+      "issuetype": {
+        "id": "10009",
+        "name": "Task"
+      },
+      "project": {
+        "id": "10010",
+        "key": "APP",
+        "name": "App Platform"
+      },
+      "status": {
+        "id": "10020",
+        "name": "In Review"
+      },
+      "priority": {
+        "id": "4",
+        "name": "Low"
+      },
+      "labels": ["copy", "content"]
+    }
+  },
+  "changelog": {
+    "id": 70004,
+    "items": [
+      {
+        "field": "summary",
+        "fieldtype": "jira",
+        "from": null,
+        "fromString": "Update onboarding text",
+        "to": null,
+        "toString": "Update onboarding copy for better clarity"
+      }
+    ]
+  }
+}

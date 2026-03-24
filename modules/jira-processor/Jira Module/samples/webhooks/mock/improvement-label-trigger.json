@@ -1,0 +1,52 @@
+{
+  "timestamp": 1711000000003,
+  "webhookEvent": "jira:issue_updated",
+  "issue_event_type_name": "issue_generic",
+  "user": {
+    "accountId": "712020:example-user-3",
+    "accountType": "atlassian",
+    "displayName": "Tech Lead",
+    "active": true,
+    "timeZone": "Asia/Kolkata"
+  },
+  "issue": {
+    "id": "20003",
+    "self": "https://example.atlassian.net/rest/api/2/issue/20003",
+    "key": "APP-103",
+    "fields": {
+      "summary": "Refactor notification worker for queue performance",
+      "description": "Current worker has duplicated retry logic and poor batch processing.\n\nDefinition of Done:\n- Shared retry helper introduced\n- Throughput improves by 25%\n\nRepo:\nhttps://github.com/example-org/notifications-service",
+      "issuetype": {
+        "id": "10009",
+        "name": "Task"
+      },
+      "project": {
+        "id": "10010",
+        "key": "APP",
+        "name": "App Platform"
+      },
+      "status": {
+        "id": "10021",
+        "name": "In Progress"
+      },
+      "priority": {
+        "id": "3",
+        "name": "Medium"
+      },
+      "labels": ["improvement", "refactor", "auto-dev"]
+    }
+  },
+  "changelog": {
+    "id": 70002,
+    "items": [
+      {
+        "field": "labels",
+        "fieldtype": "jira",
+        "from": null,
+        "fromString": "improvement,refactor",
+        "to": null,
+        "toString": "improvement,refactor,auto-dev"
+      }
+    ]
+  }
+}

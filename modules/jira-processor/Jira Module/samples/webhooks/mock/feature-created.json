@@ -1,0 +1,39 @@
+{
+  "timestamp": 1711000000001,
+  "webhookEvent": "jira:issue_created",
+  "issue_event_type_name": "issue_created",
+  "user": {
+    "accountId": "712020:example-user-1",
+    "accountType": "atlassian",
+    "displayName": "Dev User",
+    "active": true,
+    "timeZone": "Asia/Kolkata"
+  },
+  "issue": {
+    "id": "20001",
+    "self": "https://example.atlassian.net/rest/api/2/issue/20001",
+    "key": "APP-101",
+    "fields": {
+      "summary": "Add user profile preferences page",
+      "description": "As a logged-in user, I want to edit profile preferences so I can personalize my account.\n\nAcceptance Criteria:\n- User can update display name\n- User can upload avatar\n- Changes persist after refresh\n\nRepository: https://github.com/example-org/web-app",
+      "issuetype": {
+        "id": "10008",
+        "name": "Story"
+      },
+      "project": {
+        "id": "10010",
+        "key": "APP",
+        "name": "App Platform"
+      },
+      "status": {
+        "id": "10004",
+        "name": "To Do"
+      },
+      "priority": {
+        "id": "3",
+        "name": "Medium"
+      },
+      "labels": ["feature", "frontend", "auto-dev"]
+    }
+  }
+}

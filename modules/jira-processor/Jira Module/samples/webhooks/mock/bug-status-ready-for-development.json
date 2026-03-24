@@ -1,0 +1,52 @@
+{
+  "timestamp": 1711000000002,
+  "webhookEvent": "jira:issue_updated",
+  "issue_event_type_name": "issue_generic",
+  "user": {
+    "accountId": "712020:example-user-2",
+    "accountType": "atlassian",
+    "displayName": "QA User",
+    "active": true,
+    "timeZone": "Asia/Kolkata"
+  },
+  "issue": {
+    "id": "20002",
+    "self": "https://example.atlassian.net/rest/api/2/issue/20002",
+    "key": "APP-102",
+    "fields": {
+      "summary": "Fix login API timeout on slow network",
+      "description": "Users are seeing timeout errors while logging in on mobile networks.\n\nAcceptance Criteria:\n- Login succeeds under 3s on 3G simulation\n- Retry is attempted once before failure\n\nReference: https://github.com/example-org/auth-service/blob/main/docs/login.md",
+      "issuetype": {
+        "id": "10004",
+        "name": "Bug"
+      },
+      "project": {
+        "id": "10010",
+        "key": "APP",
+        "name": "App Platform"
+      },
+      "status": {
+        "id": "10030",
+        "name": "Ready for Development"
+      },
+      "priority": {
+        "id": "2",
+        "name": "High"
+      },
+      "labels": ["bug", "backend", "auth"]
+    }
+  },
+  "changelog": {
+    "id": 70001,
+    "items": [
+      {
+        "field": "status",
+        "fieldtype": "jira",
+        "from": "10020",
+        "fromString": "In Analysis",
+        "to": "10030",
+        "toString": "Ready for Development"
+      }
+    ]
+  }
+}

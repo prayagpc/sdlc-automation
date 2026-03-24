@@ -1,0 +1,183 @@
+{
+  "capturedAt": "2026-03-24T19:25:43.232Z",
+  "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "user-agent": "Atlassian Webhook HTTP Client",
+    "x-atlassian-webhook-identifier": "890045838614120943",
+    "x-atlassian-webhook-flow": "Primary"
+  },
+  "payload": {
+    "timestamp": 1774380342708,
+    "webhookEvent": "jira:issue_updated",
+    "issue_event_type_name": "issue_updated",
+    "user": {
+      "self": "https://prayagpc.atlassian.net/rest/api/2/user?accountId=712020%3A26f045d9-7f68-43e0-823d-7be472489c15",
+      "accountId": "712020:26f045d9-7f68-43e0-823d-7be472489c15",
+      "avatarUrls": {
+        "48x48": "https://secure.gravatar.com/avatar/9d02d5d4f3b1267cfd3ef401c08727a6?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FPC-0.png",
+        "24x24": "https://secure.gravatar.com/avatar/9d02d5d4f3b1267cfd3ef401c08727a6?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FPC-0.png",
+        "16x16": "https://secure.gravatar.com/avatar/9d02d5d4f3b1267cfd3ef401c08727a6?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FPC-0.png",
+        "32x32": "https://secure.gravatar.com/avatar/9d02d5d4f3b1267cfd3ef401c08727a6?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FPC-0.png"
+      },
+      "displayName": "Prayag Choudhary",
+      "active": true,
+      "timeZone": "Asia/Calcutta",
+      "accountType": "atlassian"
+    },
+    "issue": {
+      "id": "10128",
+      "self": "https://prayagpc.atlassian.net/rest/api/2/issue/10128",
+      "key": "KAN-16",
+      "fields": {
+        "statuscategorychangedate": "2026-03-25T00:33:11.394+0530",
+        "issuetype": {
+          "self": "https://prayagpc.atlassian.net/rest/api/2/issuetype/10007",
+          "id": "10007",
+          "description": "Tasks track small, distinct pieces of work.",
+          "iconUrl": "https://prayagpc.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "entityId": "838b5267-6b90-4959-b7b4-35885127daca",
+          "hierarchyLevel": 0
+        },
+        "components": [],
+        "timespent": null,
+        "timeoriginalestimate": null,
+        "description": "h2. Background\n\nPhase 1 rebooks onto the *next available direct flight* on the same origin/destination within a search window. Real networks often require *multi-hop* recovery (e.g., SFO→DEN→JFK) when nonstop capacity is gone.\n\nh2. Acceptance criteria\n\n# *Model / data*\n#* Introduce an explicit representation of a *passenger itinerary* (single- or multi-segment) without breaking existing {{Booking}} rows (migration strategy documented in PR).\n#* A booking references either a *single segment* (Phase 1 compatible) or belongs to an itinerary group.\n# *Search*\n#* Given a disrupted segment, the rebooking engine can propose *valid multi-hop paths* constrained by:\n#** Minimum connection time between legs (configurable via env, e.g. {{MIN_CONNECTION_MINUTES}}).\n#** Maximum additional travel time vs original itinerary (configurable).\n#** Airport compatibility (same metro exceptions configurable; default strict).\n# *Algorithm*\n#* VIP > BUSINESS > ECONOMY ordering is preserved *within* each disruption batch.\n#* If *no* valid path exists, passenger booking ends in {{NO_SEAT_AVAILABLE}} (or itinerary-level equivalent) and downstream compensation/notifications still run deterministically.\n# *Correctness*\n#* Unit tests cover at least:\n#** 2-hop successful rebook\n#** Impossible connection → {{NO_SEAT_AVAILABLE}}\n#** Priority ordering with mixed loyalty on the same disrupted flight\n# *Operational*\n#* Structured logs include {{itineraryId}}, {{path}}, and {{correlationId}} for each rebook decision.\n\nh2. Non-goals (for this ticket)\n\n* Global optimization across the entire network (that is a separate research spike).\n\nh2. Definition of done\n\n* Migrations applied, tests green, README section updated for new env vars and behavior.",
+        "project": {
+          "self": "https://prayagpc.atlassian.net/rest/api/2/project/10001",
+          "id": "10001",
+          "key": "KAN",
+          "name": "My Software Team",
+          "projectTypeKey": "software",
+          "simplified": true,
+          "avatarUrls": {
+            "48x48": "https://prayagpc.atlassian.net/rest/api/2/universal_avatar/view/type/project/avatar/10411",
+            "24x24": "https://prayagpc.atlassian.net/rest/api/2/universal_avatar/view/type/project/avatar/10411?size=small",
+            "16x16": "https://prayagpc.atlassian.net/rest/api/2/universal_avatar/view/type/project/avatar/10411?size=xsmall",
+            "32x32": "https://prayagpc.atlassian.net/rest/api/2/universal_avatar/view/type/project/avatar/10411?size=medium"
+          }
+        },
+        "fixVersions": [],
+        "statusCategory": {
+          "self": "https://prayagpc.atlassian.net/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "New"
+        },
+        "aggregatetimespent": null,
+        "resolution": null,
+        "customfield_10036": null,
+        "timetracking": {},
+        "customfield_10015": null,
+        "security": null,
+        "attachment": [],
+        "aggregatetimeestimate": null,
+        "resolutiondate": null,
+        "workratio": -1,
+        "summary": "Extend rebooking so passengers with connecting itineraries can be rerouted across multiple segments when a single leg is disrupted, while preserving business rules (priority ordering, seat availability, and “no seat” handling).dyfghjkl;",
+        "watches": {
+          "self": "https://prayagpc.atlassian.net/rest/api/2/issue/KAN-16/watchers",
+          "watchCount": 1,
+          "isWatching": true
+        },
+        "issuerestriction": {
+          "issuerestrictions": {},
+          "shouldDisplay": true
+        },
+        "lastViewed": null,
+        "creator": {
+          "self": "https://prayagpc.atlassian.net/rest/api/2/user?accountId=712020%3A26f045d9-7f68-43e0-823d-7be472489c15",
+          "accountId": "712020:26f045d9-7f68-43e0-823d-7be472489c15",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/9d02d5d4f3b1267cfd3ef401c08727a6?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FPC-0.png",
+            "24x24": "https://secure.gravatar.com/avatar/9d02d5d4f3b1267cfd3ef401c08727a6?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FPC-0.png",
+            "16x16": "https://secure.gravatar.com/avatar/9d02d5d4f3b1267cfd3ef401c08727a6?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FPC-0.png",
+            "32x32": "https://secure.gravatar.com/avatar/9d02d5d4f3b1267cfd3ef401c08727a6?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FPC-0.png"
+          },
+          "displayName": "Prayag Choudhary",
+          "active": true,
+          "timeZone": "Asia/Calcutta",
+          "accountType": "atlassian"
+        },
+        "subtasks": [],
+        "created": "2026-03-25T00:33:10.987+0530",
+        "reporter": {
+          "self": "https://prayagpc.atlassian.net/rest/api/2/user?accountId=712020%3A26f045d9-7f68-43e0-823d-7be472489c15",
+          "accountId": "712020:26f045d9-7f68-43e0-823d-7be472489c15",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/9d02d5d4f3b1267cfd3ef401c08727a6?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FPC-0.png",
+            "24x24": "https://secure.gravatar.com/avatar/9d02d5d4f3b1267cfd3ef401c08727a6?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FPC-0.png",
+            "16x16": "https://secure.gravatar.com/avatar/9d02d5d4f3b1267cfd3ef401c08727a6?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FPC-0.png",
+            "32x32": "https://secure.gravatar.com/avatar/9d02d5d4f3b1267cfd3ef401c08727a6?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FPC-0.png"
+          },
+          "displayName": "Prayag Choudhary",
+          "active": true,
+          "timeZone": "Asia/Calcutta",
+          "accountType": "atlassian"
+        },
+        "customfield_10021": null,
+        "aggregateprogress": {
+          "progress": 0,
+          "total": 0
+        },
+        "priority": {
+          "self": "https://prayagpc.atlassian.net/rest/api/2/priority/3",
+          "iconUrl": "https://prayagpc.atlassian.net/images/icons/priorities/medium_new.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "customfield_10001": null,
+        "labels": [],
+        "environment": null,
+        "customfield_10019": "0|i0005j:",
+        "timeestimate": null,
+        "aggregatetimeoriginalestimate": null,
+        "versions": [],
+        "duedate": null,
+        "progress": {
+          "progress": 0,
+          "total": 0
+        },
+        "issuelinks": [],
+        "votes": {
+          "self": "https://prayagpc.atlassian.net/rest/api/2/issue/KAN-16/votes",
+          "votes": 0,
+          "hasVoted": false
+        },
+        "assignee": null,
+        "updated": "2026-03-25T00:55:42.708+0530",
+        "status": {
+          "self": "https://prayagpc.atlassian.net/rest/api/2/status/10004",
+          "description": "",
+          "iconUrl": "https://prayagpc.atlassian.net/images/icons/statuses/generic.png",
+          "name": "To Do",
+          "id": "10004",
+          "statusCategory": {
+            "self": "https://prayagpc.atlassian.net/rest/api/2/statuscategory/2",
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "New"
+          }
+        }
+      }
+    },
+    "changelog": {
+      "id": "10205",
+      "items": [
+        {
+          "field": "summary",
+          "fieldtype": "jira",
+          "fieldId": "summary",
+          "from": null,
+          "fromString": "Extend rebooking so passengers with connecting itineraries can be rerouted across multiple segments when a single leg is disrupted, while preserving business rules (priority ordering, seat availability, and “no seat” handling).",
+          "to": null,
+          "toString": "Extend rebooking so passengers with connecting itineraries can be rerouted across multiple segments when a single leg is disrupted, while preserving business rules (priority ordering, seat availability, and “no seat” handling).dyfghjkl;"
+        }
+      ]
+    }
+  }
+}

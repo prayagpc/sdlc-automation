@@ -1,0 +1,109 @@
+{
+  "capturedAt": "2026-03-24T19:25:43.255Z",
+  "statusCode": 200,
+  "outcome": "ignored_trigger_not_matched",
+  "event": "jira:issue_updated",
+  "issueKey": "KAN-16",
+  "response": {
+    "received": true,
+    "ignored": true,
+    "reason": "Trigger rule not matched",
+    "event": "jira:issue_updated",
+    "issueKey": "KAN-16",
+    "ticket": {
+      "key": "KAN-16",
+      "title": "Extend rebooking so passengers with connecting itineraries can be rerouted across multiple segments when a single leg is disrupted, while preserving business rules (priority ordering, seat availability, and “no seat” handling).dyfghjkl;",
+      "issueType": "Task",
+      "projectKey": "KAN",
+      "status": "To Do",
+      "priority": "Medium",
+      "assignee": null,
+      "labels": []
+    },
+    "repository": {
+      "primary": null,
+      "references": [],
+      "documents": [],
+      "attachmentCount": 0
+    },
+    "customFieldKeys": [
+      "customfield_10019"
+    ],
+    "triggerReasons": [],
+    "llmResponse": {
+      "schemaVersion": "1.0",
+      "purpose": "llm-code-generation-input",
+      "meta": {
+        "issueKey": "KAN-16",
+        "event": "jira:issue_updated",
+        "outcome": "ignored_trigger_not_matched",
+        "triggerMatched": false,
+        "validationPassed": true,
+        "automationStarted": false,
+        "issueType": "Task",
+        "projectKey": "KAN",
+        "status": "To Do",
+        "labels": [],
+        "priority": "Medium",
+        "assignee": null
+      },
+      "task": {
+        "id": "KAN-16",
+        "type": "feature",
+        "title": "Extend rebooking so passengers with connecting itineraries can be rerouted across multiple segments when a single leg is disrupted, while preserving business rules (priority ordering, seat availability, and “no seat” handling).dyfghjkl;",
+        "description": "h2. Background\n\nPhase 1 rebooks onto the *next available direct flight* on the same origin/destination within a search window. Real networks often require *multi-hop* recovery (e.g., SFO→DEN→JFK) when nonstop capacity is gone.\n\nh2. Acceptance criteria\n\n# *Model / data*\n#* Introduce an explicit representation of a *passenger itinerary* (single- or multi-segment) without breaking existing {{Booking}} rows (migration strategy documented in PR).\n#* A booking references either a *single segment* (Phase 1 compatible) or belongs to an itinerary group.\n# *Search*\n#* Given a disrupted segment, the rebooking engine can propose *valid multi-hop paths* constrained by:\n#** Minimum connection time between legs (configurable via env, e.g. {{MIN_CONNECTION_MINUTES}}).\n#** Maximum additional travel time vs original itinerary (configurable).\n#** Airport compatibility (same metro exceptions configurable; default strict).\n# *Algorithm*\n#* VIP > BUSINESS > ECONOMY ordering is preserved *within* each disruption batch.\n#* If *no* valid path exists, passenger booking ends in {{NO_SEAT_AVAILABLE}} (or itinerary-level equivalent) and downstream compensation/notifications still run deterministically.\n# *Correctness*\n#* Unit tests cover at least:\n#** 2-hop successful rebook\n#** Impossible connection → {{NO_SEAT_AVAILABLE}}\n#** Priority ordering with mixed loyalty on the same disrupted flight\n# *Operational*\n#* Structured logs include {{itineraryId}}, {{path}}, and {{correlationId}} for each rebook decision.\n\nh2. Non-goals (for this ticket)\n\n* Global optimization across the entire network (that is a separate research spike).\n\nh2. Definition of done\n\n* Migrations applied, tests green, README section updated for new env vars and behavior.",
+        "acceptanceCriteria": [
+          "*Model / data*",
+          "#* Introduce an explicit representation of a *passenger itinerary* (single- or multi-segment) without breaking existing {{Booking}} rows (migration strategy documented in PR).",
+          "#* A booking references either a *single segment* (Phase 1 compatible) or belongs to an itinerary group.",
+          "*Search*",
+          "#* Given a disrupted segment, the rebooking engine can propose *valid multi-hop paths* constrained by:",
+          "#** Minimum connection time between legs (configurable via env, e.g. {{MIN_CONNECTION_MINUTES}}).",
+          "#** Maximum additional travel time vs original itinerary (configurable).",
+          "#** Airport compatibility (same metro exceptions configurable; default strict).",
+          "*Algorithm*",
+          "#* VIP > BUSINESS > ECONOMY ordering is preserved *within* each disruption batch.",
+          "#* If *no* valid path exists, passenger booking ends in {{NO_SEAT_AVAILABLE}} (or itinerary-level equivalent) and downstream compensation/notifications still run deterministically.",
+          "*Correctness*",
+          "#* Unit tests cover at least:",
+          "#** 2-hop successful rebook",
+          "#** Impossible connection → {{NO_SEAT_AVAILABLE}}",
+          "#** Priority ordering with mixed loyalty on the same disrupted flight",
+          "*Operational*",
+          "#* Structured logs include {{itineraryId}}, {{path}}, and {{correlationId}} for each rebook decision.",
+          "h2. Non-goals (for this ticket)",
+          "Global optimization across the entire network (that is a separate research spike)."
+        ],
+        "subtasks": [],
+        "technicalNotes": {
+          "backend": [],
+          "frontend": [],
+          "security": [],
+          "database": []
+        },
+        "repository": {
+          "primary": null,
+          "references": [],
+          "documents": [],
+          "attachments": []
+        },
+        "customFields": {
+          "customfield_10019": "0|i0005j:"
+        },
+        "goal": "Implement the requested feature end-to-end with tests.",
+        "constraints": [
+          "Respect existing project structure and coding conventions.",
+          "Add or update tests for new behavior or bug fixes.",
+          "Implement behavior exactly as requested in the ticket."
+        ],
+        "triggerReasons": []
+      },
+      "validation": {
+        "isValid": true,
+        "errors": [],
+        "failure": null
+      },
+      "generatedAt": "2026-03-24T19:25:43.254Z"
+    }
+  }
+}

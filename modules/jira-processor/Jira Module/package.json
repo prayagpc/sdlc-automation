@@ -1,0 +1,24 @@
+{
+  "name": "jira-module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "tunnel": "cloudflared tunnel --url http://localhost:3001",
+    "tunnel:3000": "cloudflared tunnel --url http://localhost:3000",
+    "tunnel:3001": "cloudflared tunnel --url http://localhost:3001"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1"
+  },
+  "type": "module",
+  "devDependencies": {
+    "cloudflared": "^0.7.1"
+  }
+}
